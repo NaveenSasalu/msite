@@ -3,11 +3,12 @@ name: Build and Push to DockerHub
 on:
   push:
     branches: ["main"]
-    # Only trigger if code or dockerfile changes
     paths:
       - "**.jsx"
+      - "**.js"
       - "**.html"
       - "Dockerfile"
+      - "nginx.conf"
       - "package.json"
 
 jobs:
@@ -24,9 +25,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          # This uses the secrets you set in your GitHub Repository settings
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/kaayaka-website:latest
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/kaayaka-website:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/kaayaka-website:latest

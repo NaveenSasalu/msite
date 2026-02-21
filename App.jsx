@@ -134,15 +134,15 @@ const CONTENT = {
   faq: [
     {
       q: "How does GitOps benefit my existing infrastructure?",
-      a: "GitOps provides a single source of truth for your infrastructure. It ensures that your K3s or Kubernetes cluster state always matches what's in your Git repository, enabling easy rollbacks and automated syncing via ArgoCD.",
+      a: "GitOps provides a single source of truth for your infrastructure. It ensures that your K8s or Kubernetes cluster state always matches what's in your Git repository, enabling easy rollbacks and automated syncing via ArgoCD.",
     },
     {
       q: "Can you help migrate our legacy ITSM to a modern workflow?",
       a: "Yes. We specialize in mapping traditional ITIL processes into automated request management systems, reducing manual ticket handling.",
     },
     {
-      q: "Is Kaayaka specialized in K3s specifically?",
-      a: "While we handle standard Kubernetes, we are specialists in K3s for edge computing and lightweight environments, ensuring high performance on smaller footprints.",
+      q: "Is Kaayaka specialized in K8s specifically?",
+      a: "While we handle standard Kubernetes, we are specialists in K8s for edge computing and lightweight environments, ensuring high performance on smaller footprints.",
     },
   ],
   testimonials: [
@@ -271,7 +271,7 @@ const App = () => {
       </nav>
 
       {/* Hero */}
-      <section className="relative pt-40 pb-20 md:pt-22 md:pb-12 overflow-hidden">
+      <section className="relative pt-40 pb-20 md:pt-25 md:pb-15 overflow-hidden">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-full -z-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-100/40 rounded-full blur-3xl opacity-60 animate-pulse"></div>
           <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-3xl opacity-60"></div>
@@ -286,7 +286,7 @@ const App = () => {
               </span>
               GitOps-Managed Infrastructure
             </div>
-            <h1 className="text-4xl md:text-7xl font-black text-slate-900 leading-[1] mb-8 tracking-tighter">
+            <h1 className="text-4xl md:text-8xl font-black text-slate-900 leading-[1] mb-8 tracking-tighter">
               {CONTENT.hero.title}
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 leading-relaxed mb-10 max-w-2xl">
@@ -493,7 +493,7 @@ automation:
                   Let's solve your tech debt.
                 </h3>
                 <p className="text-indigo-200 text-lg mb-8 opacity-80">
-                  Ready to automate your K3s cluster or modernize your ITSM
+                  Ready to automate your K8s cluster or modernize your ITSM
                   approach?
                 </p>
               </div>
