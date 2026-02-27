@@ -510,7 +510,16 @@ automation:
 
             <form
               className="lg:col-span-3 p-12 bg-white"
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target;
+                const name = form.elements.name.value;
+                const email = form.elements.email.value;
+                const message = form.elements.message.value;
+                const subject = encodeURIComponent(`Enquiry from ${name}`);
+                const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+                window.location.href = `mailto:hello@kaayaka.in?subject=${subject}&body=${body}`;
+              }}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="space-y-2">
@@ -518,7 +527,9 @@ automation:
                     Full Name
                   </label>
                   <input
+                    name="name"
                     type="text"
+                    required
                     className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:ring-4 focus:ring-indigo-100 outline-none"
                     placeholder="Jane Doe"
                   />
@@ -528,7 +539,9 @@ automation:
                     Email
                   </label>
                   <input
+                    name="email"
                     type="email"
+                    required
                     className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:ring-4 focus:ring-indigo-100 outline-none"
                     placeholder="jane@company.com"
                   />
@@ -538,13 +551,18 @@ automation:
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows="4"
+                    required
                     className="w-full px-5 py-3 rounded-xl border border-slate-200 focus:ring-4 focus:ring-indigo-100 outline-none"
                     placeholder="Project goals..."
                   ></textarea>
                 </div>
               </div>
-              <button className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 transition-all flex items-center justify-center gap-2">
+              <button
+                type="submit"
+                className="w-full py-4 bg-indigo-600 text-white rounded-xl font-bold text-lg hover:bg-indigo-700 transition-all flex items-center justify-center gap-2"
+              >
                 Send Message <Zap className="w-5 h-5 fill-white" />
               </button>
             </form>
