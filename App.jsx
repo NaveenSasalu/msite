@@ -576,7 +576,7 @@ automation:
               </a>
             </div>
             <p className="text-slate-400 text-sm font-mono tracking-tighter">
-              © 2024 {CONTENT.brand} Consulting. Managed via GitOps.
+              © {new Date().getFullYear()} {CONTENT.brand} Consulting. Managed via GitOps.
             </p>
           </div>
         </div>
