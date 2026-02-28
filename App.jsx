@@ -2,29 +2,20 @@ import React, { useState, useEffect } from "react";
 import {
   Terminal,
   Code2,
-  Cpu,
-  Layers,
   MessageSquare,
   ArrowRight,
   Menu,
   X,
-  Linkedin,
-  Github,
-  Twitter,
   Zap,
   Activity,
   GitBranch,
   Settings2,
   ClipboardCheck,
-  LifeBuoy,
   ShieldCheck,
-  Clock,
-  ChevronDown,
   Plus,
   Minus,
-  Cloud,
-  Box,
-  Infinity,
+  Shield,
+  Server,
 } from "lucide-react";
 
 import "./index.css";
@@ -58,7 +49,7 @@ const CONTENT = {
       value: "85%",
       detail: "Through automation",
     },
-    { label: "Clients Globally", value: "xx+", detail: "Trusted partners" },
+    { label: "Apps Delivered", value: "5+", detail: "Production workloads" },
   ],
   services: [
     {
@@ -96,6 +87,16 @@ const CONTENT = {
       title: "App Dev & Support",
       desc: "End-to-end application development paired with 24/7 managed support services.",
     },
+    {
+      icon: <Shield className="w-8 h-8 text-amber-500" />,
+      title: "Container Security",
+      desc: "Zero-trust container hardening with Vault secrets management, non-root enforcement, and read-only filesystems.",
+    },
+    {
+      icon: <Server className="w-8 h-8 text-teal-500" />,
+      title: "Platform Engineering",
+      desc: "Self-service developer platforms with automated provisioning, Gateway API routing, and TLS certificate management.",
+    },
   ],
   stack: [
     "Docker",
@@ -103,11 +104,15 @@ const CONTENT = {
     "K3s",
     "ArgoCD",
     "Terraform",
+    "Vault",
+    "Traefik",
     "Prometheus",
+    "Grafana",
     "ServiceNow",
     "Jira",
     "React",
-    "Go",
+    "Next.js",
+    "FastAPI",
   ],
   process: [
     {
@@ -424,10 +429,11 @@ reconcile: EveryPush
 security:
   - scans: true
   - access: RBAC
-  - secrets: SealedSecrets
+  - secrets: Vault + ExternalSecrets
 automation:
   - ci_cd: ArgoCD
-  - infra: Terraform`}
+  - infra: Terraform
+  - gateway: Traefik`}
                 </pre>
                 <div className="mt-10 pt-10 border-t border-white/10 italic text-slate-400">
                   "We automate the mundane so your engineers can focus on the
@@ -583,15 +589,15 @@ automation:
               KAAYAKA
             </div>
             <div className="flex gap-8 text-slate-400 font-bold uppercase text-xs tracking-widest">
-              <a href="#" className="hover:text-indigo-600">
-                Twitter
-              </a>
-              <a href="#" className="hover:text-indigo-600">
-                Github
-              </a>
-              <a href="#" className="hover:text-indigo-600">
-                Linkedin
-              </a>
+              <button onClick={() => scrollTo("services")} className="hover:text-indigo-600">
+                Offerings
+              </button>
+              <button onClick={() => scrollTo("process")} className="hover:text-indigo-600">
+                Methodology
+              </button>
+              <button onClick={() => scrollTo("contact")} className="hover:text-indigo-600">
+                Contact
+              </button>
             </div>
             <p className="text-slate-400 text-sm font-mono tracking-tighter">
               © {new Date().getFullYear()} {CONTENT.brand} Consulting. Managed via GitOps.
